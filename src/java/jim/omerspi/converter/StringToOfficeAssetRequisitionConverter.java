@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Component
 public class StringToOfficeAssetRequisitionConverter implements Converter<String, Officeassetrequisition> {

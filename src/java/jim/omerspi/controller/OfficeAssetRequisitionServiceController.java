@@ -27,7 +27,7 @@ import jim.omerspi.model.Officeassetrequisitionservice;
 
 /**
  *
- * @author JIMMY
+ * @author Jimmy
  */
 @Controller
 @RequestMapping("/officeAssetService")

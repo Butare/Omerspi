@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Component
 public class StringToStationaryRegistrationsConverter implements Converter<String, Stationaryregistration> {

@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Controller
 public class MemoController {

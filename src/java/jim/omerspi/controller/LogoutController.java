@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Controller
 public class LogoutController {

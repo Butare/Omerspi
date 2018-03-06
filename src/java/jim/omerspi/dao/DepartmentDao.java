@@ -9,7 +9,7 @@ import jim.omerspi.model.Department;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public interface DepartmentDao {
     

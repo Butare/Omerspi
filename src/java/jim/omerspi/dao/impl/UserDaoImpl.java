@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class UserDaoImpl implements UserDao {
 

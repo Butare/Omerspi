@@ -22,7 +22,7 @@ import org.hibernate.transform.Transformers;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class StationaryRegistrationsDaoImpl implements StationaryRegistrationsDao {
 

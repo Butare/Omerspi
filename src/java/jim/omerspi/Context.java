@@ -16,7 +16,7 @@ import org.springframework.mail.MailSender;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class Context implements ApplicationContextAware {
 

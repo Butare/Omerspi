@@ -27,7 +27,7 @@ import jim.omerspi.PrivilegeConstants;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Controller
 @RequestMapping(value = "/user")

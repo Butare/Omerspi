@@ -13,7 +13,7 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class OfficeAssetRequisitionServiceDaoImpl implements OfficeAssetRequisitionServiceDao {
 

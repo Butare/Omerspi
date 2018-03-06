@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Component
 public class EmployeeToStringConverter implements Converter<Employee, String> {

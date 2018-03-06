@@ -31,7 +31,7 @@ import org.springframework.validation.BindingResult;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Controller
 @RequestMapping("/stationary")

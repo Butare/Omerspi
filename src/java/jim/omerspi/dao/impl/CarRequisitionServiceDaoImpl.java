@@ -17,7 +17,7 @@ import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class CarRequisitionServiceDaoImpl implements CarRequisitionServiceDao {
 

@@ -6,7 +6,7 @@ package jim.omerspi;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class Constants {
 

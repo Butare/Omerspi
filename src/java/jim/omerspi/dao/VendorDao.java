@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Transactional
 public interface VendorDao {

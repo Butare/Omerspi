@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class PrivilegeDaoImpl implements PrivilegeDao {
 

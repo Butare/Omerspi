@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Component
 public class CarRegistrationToStringConverter implements Converter<Carregistration, String> {

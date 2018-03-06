@@ -13,7 +13,7 @@ import org.springframework.core.convert.converter.Converter;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Component
 public class StringToDateConverter implements Converter<String, Date> {

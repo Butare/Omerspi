@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class RequestedItemDaoImpl implements RequestedItemDao{
 

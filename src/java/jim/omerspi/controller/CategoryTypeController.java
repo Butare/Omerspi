@@ -20,7 +20,7 @@ import jim.omerspi.PrivilegeConstants;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 @Controller
 @RequestMapping("/categoryType")

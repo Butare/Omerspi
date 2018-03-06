@@ -20,7 +20,7 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  *
- * @author JOHN
+ * @author Jimmy
  */
 public class VendorDaoImpl implements VendorDao {
 
