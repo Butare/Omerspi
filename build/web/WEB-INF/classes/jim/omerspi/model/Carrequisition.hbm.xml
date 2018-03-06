@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2013 10:25:43 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Carrequisition" table="carrequisition" catalog="omerspi">
+        <id name="carRequisitionId" type="java.lang.Integer">
+            <column name="carRequisitionId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employee" class="jim.omerspi.model.Employee" fetch="select">
+            <column name="requesterId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cartype" class="jim.omerspi.model.Cartype" fetch="select">
+            <column name="carTypeId" />
+        </many-to-one>
+        <property name="reason" type="string">
+            <column name="reason" not-null="true" />
+        </property>
+        <property name="destination" type="string">
+            <column name="destination" length="100" not-null="true" />
+        </property>
+        <property name="departureTime" type="timestamp">
+            <column name="departureTime" length="19" not-null="true" />
+        </property>
+        <property name="expectedTimeReturn" type="timestamp">
+            <column name="expectedTimeReturn" length="19" not-null="true" />
+        </property>
+        <property name="requestedOn" type="timestamp">
+            <column name="requestedOn" length="19" not-null="true" />
+        </property>
+        <property name="carRequisitionStatus" type="string">
+            <column name="carRequisitionStatus" length="45" />
+        </property>
+        <property name="servedOn" type="date">
+            <column name="servedOn" length="10" />
+        </property>
+        <property name="baggageWeight" type="java.lang.Integer">
+            <column name="baggageWeight" />
+        </property>
+        <property name="totalAmount" type="java.lang.Integer">
+            <column name="totalAmount" />
+        </property>
+        <property name="destinationType" type="string">
+            <column name="destinationType" length="35" />
+        </property>
+        <property name="costingBasis" type="string">
+            <column name="costingBasis" length="20" />
+        </property>
+        <property name="seen" type="java.lang.Boolean">
+            <column name="seen" />
+        </property>
+        <set name="carrequisitionservices" inverse="true">
+            <key>
+                <column name="carRequisitionId" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Carrequisitionservice" />
+        </set>
+        <set name="requisitionresponseses" inverse="true">
+            <key>
+                <column name="carRequisitionId" unique="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Requisitionresponses" />
+        </set>
+        <set name="iteneraries" inverse="false"  cascade="save-update" table="itenerary_carrequisition">
+            <key>
+                <column name="carRequisitionId" not-null="true" />
+            </key>
+            <many-to-many entity-name="jim.omerspi.model.Itenerary">
+                <column name="iteneraryId" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="memos" inverse="true">
+            <key>
+                <column name="carRequisitionId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Memo" />
+        </set>
+        <set name="iteneraries_1" inverse="true" table="itenerary_carrequisition">
+            <key>
+                <column name="carRequisitionId" not-null="true" />
+            </key>
+            <many-to-many entity-name="jim.omerspi.model.Itenerary">
+                <column name="iteneraryId" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="carrequisitionservices_1" inverse="true">
+            <key>
+                <column name="carRequisitionId" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Carrequisitionservice" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2013 10:25:43 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.RequestedItems" table="requested_items" catalog="omerspi">
+        <id name="requestedId" type="java.lang.Integer">
+            <column name="requestedId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="stationaryrequisition" class="jim.omerspi.model.Stationaryrequisition" fetch="select">
+            <column name="stationaryRequisitionId"/>
+        </many-to-one>
+        <many-to-one name="officeassetrequisition" class="jim.omerspi.model.Officeassetrequisition" fetch="select">
+            <column name="officeAssetRequisitionId"/>
+        </many-to-one>
+        <many-to-one name="items" class="jim.omerspi.model.Items" fetch="select">
+            <column name="itemId" not-null="true" />
+        </many-to-one>
+        <property name="requestedQty" type="int">
+            <column name="requestedQty" not-null="true" />
+        </property>
+        <property name="servedQty" type="java.lang.Integer">
+            <column name="servedQty" />
+        </property>
+        <property name="observation" type="string">
+            <column name="observation" length="45" />
+        </property>
+        <property name="remainingQty" type="java.lang.Integer">
+            <column name="remainingQty" />
+        </property>
+        <property name="serviceDate" type="timestamp">
+            <column name="serviceDate" length="19" />
+        </property>
+        <set name="officeassetrequisitionservices" inverse="true">
+            <key>
+                <column name="requestedId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Officeassetrequisitionservice" />
+        </set>
+    </class>
+</hibernate-mapping>

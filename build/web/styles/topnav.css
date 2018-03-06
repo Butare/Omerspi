@@ -1,0 +1,97 @@
+.sf-menu {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    padding-left: 0;
+    text-transform: uppercase;
+    z-index: 999;
+	
+}
+ul li{ list-style:none;}
+.sf-menu ul {
+    background: none repeat scroll 0 0 #226CA8;
+    
+    left: 0;
+    min-width: 220px;
+    padding: 2px 20px ;
+    position: absolute;
+    text-align: left;
+    top: -999px;
+	border:1px solid #065696;
+	-moz-box-shadow: 0px 0px 5px #044986;
+}
+.sf-menu ul ul {
+    background: none repeat scroll 0 0 #226CA8;
+}
+.sf-menu ul.hidden {
+    top: -999px;
+}
+.sf-menu li {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 14px;
+    position: relative;
+}
+.sf-menu > li {
+    
+    float: left;
+    margin-left: 0;
+    text-align: center;
+    padding-left:30px;
+    padding-right:15px;
+}
+.iot{background: url("../images/nav-border.gif") no-repeat scroll right center transparent;}
+.sf-menu > li.first, .sf-menu > li:first-child {
+    border-left: 0 none;
+    /*border-radius: 9px 0 0 9px;*/
+    width: 80px;
+}
+.sf-menu a {
+    color: #FFFFFF;
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+.sf-menu > li > a {
+    color: #ffffff;
+    padding: 6px 0 15px;
+    text-align: center;
+}
+.sf-menu li:hover ul, .sf-menu li.sfHover ul {
+    left: 0;
+    top: 35px;
+    z-index: 99;
+}
+.sf-menu li:hover li ul, ul.sf-menu li.sfHover li ul {
+    top: -999px;
+}
+.sf-menu > li.current, .sf-menu > li:hover, .sf-menu > li.sfHover {
+    background: #FFFFFF;
+}
+.sf-menu > li.current > a, .sf-menu > li:hover > a, .sf-menu > li.sfHover > a {
+    color: #125F9F;
+}
+.sf-menu li li:hover ul, ul.sf-menu li li.sfHover ul {
+    left: 100%;
+    margin-left: 2px;
+    top: -10px;
+	z-index:100;
+}
+.sf-menu li li {
+    -moz-transition: all 0.5s ease 0s;
+    background: url("point.png") repeat scroll 0 0 transparent;
+    border-radius: 6px 6px 6px 6px;
+    margin: 0 0 2px;
+    min-width: 102px;
+}
+.sf-menu li li.current, .sf-menu li li.sfHover, .sf-menu li li:hover {
+    background: none repeat scroll 0 0 #044C8A;
+}
+.sf-menu li li.current a, .sf-menu li li.sfHover > a, .sf-menu li li:hover > a {
+    color: #fff;
+}
+.sf-menu li li a {
+    min-width: 85px;
+    padding: 5px 15px;
+    text-align: left;
+}

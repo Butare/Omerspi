@@ -1,0 +1,65 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+
+<!-- Car Related report views -->
+
+    <bean id="PdfCarRequisitionForm"
+	   	class="jim.omerspi.report.view.CarRequisitionFormPdfView">
+    </bean>
+
+    
+    <bean id="PdfTotalByDrivers"
+	   	class="jim.omerspi.report.view.CarTotalByDriversPdfView">
+    </bean>
+    
+    <bean id="PdfDriversAndTransportedStaff"
+            class="jim.omerspi.report.view.CarDriverAndTransportedStaffView">
+                
+    </bean>
+    
+    <bean id="PdfTotalByDepartment"
+            class="jim.omerspi.report.view.CarTotalByDepartmentView">
+                
+    </bean>
+    
+    <bean id="PdfTotalByCompany"
+            class="jim.omerspi.report.view.CarTotalByCompanyView">
+    </bean>
+    
+<!--  Stock/Stationary related report views   -->
+            
+    <bean id="PdfStationaryRequisitionForm"
+	   	class="jim.omerspi.report.view.StationaryRequisitionFormPdfView">
+    </bean>
+    
+    <bean id="PdfOfficeAssetRequisitionForm"
+	   	class="jim.omerspi.report.view.OfficeAssetRequisitionFormPdfView">
+    </bean>
+    
+    <bean id="PdfPurchasedStationarySummary"
+            class="jim.omerspi.report.view.StationaryStockSummaryPdfView">
+                
+    </bean>
+    
+    <bean id="PdfServedItemByCategory"
+            class="jim.omerspi.report.view.StationaryServedItemPdfView">
+                
+    </bean>
+    
+    <bean id="PdfAllStationarySummary"
+        class="jim.omerspi.report.view.StationaryAllSummaryPdfView">
+    </bean>
+    
+    
+<!-- Excel reports   -->
+
+    <bean id="ExcelServedItemByCategory"
+        class="jim.omerspi.report.view.StationaryServedItemExcelView">    
+    </bean>
+    
+ 
+</beans>

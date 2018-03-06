@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2013 10:25:43 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Stationaryregistration" table="stationaryregistration" catalog="omerspi">
+        <id name="stationaryRegistrationId" type="java.lang.Integer">
+            <column name="stationaryRegistrationId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="vendor" class="jim.omerspi.model.Vendor" fetch="select">
+            <column name="vendorRegistrationId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employee" class="jim.omerspi.model.Employee" fetch="select">
+            <column name="recordedBy" not-null="true" />
+        </many-to-one>
+        <many-to-one name="items" class="jim.omerspi.model.Items" fetch="select">
+            <column name="itemId" not-null="true" />
+        </many-to-one>
+        <property name="purchaseOrder" type="string">
+            <column name="purchaseOrder" length="45" />
+        </property>
+        <property name="deliveryNoteNumber" type="string">
+            <column name="deliveryNoteNumber" length="45" not-null="true" />
+        </property>
+        <property name="contractNumber" type="string">
+            <column name="contractNumber" length="45" not-null="true" />
+        </property>
+        <property name="specification" type="string">
+            <column name="specification" length="60" not-null="true" />
+        </property>
+        <property name="purchasedQty" type="int">
+            <column name="purchasedQty" not-null="true" />
+        </property>
+        <property name="unitPrice" type="int">
+            <column name="unitPrice" not-null="true" />
+        </property>
+        <property name="acquisitionDate" type="timestamp">
+            <column name="acquisitionDate" length="19" not-null="true" />
+        </property>
+        <property name="modifiedOn" type="timestamp">
+            <column name="modifiedOn" length="19" />
+        </property>
+        <property name="openingStock" type="int">
+            <column name="openingStock" />    
+        </property>
+    </class>
+</hibernate-mapping>

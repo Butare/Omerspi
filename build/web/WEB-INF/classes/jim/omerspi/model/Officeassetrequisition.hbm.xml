@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 2, 2013 11:37:24 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Officeassetrequisition" table="officeassetrequisition" catalog="omerspi">
+        <id name="officeAssetRequisitionId" type="java.lang.Integer">
+            <column name="officeAssetRequisitionId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employee" class="jim.omerspi.model.Employee" fetch="select">
+            <column name="requesterId" not-null="true" />
+        </many-to-one>
+        <property name="beneficiary" type="string">
+            <column name="beneficiary" length="100" />
+        </property>
+        <property name="roomNumber" type="string">
+            <column name="roomNumber" length="10" not-null="true" />
+        </property>
+        <property name="requisitionDate" type="timestamp">
+            <column name="requisitionDate" length="19" not-null="true" />
+        </property>
+        <property name="serviceDate" type="timestamp">
+            <column name="serviceDate" length="19" />
+        </property>
+        <property name="serviceNumber" type="string">
+            <column name="serviceNumber" length="60" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="45" not-null="true" />
+        </property>
+        <property name="officeRequisitionSeen" type="boolean">
+            <column name="officeRequisitionSeen" not-null="true" />
+        </property>
+        <set name="memos" inverse="true">
+            <key>
+                <column name="officeAssetRequisitionId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Memo" />
+        </set>
+        <set name="requestedItemses" inverse="true">
+            <key>
+                <column name="officeAssetRequisitionId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.RequestedItems" />
+        </set>
+        <set name="memos_1" inverse="true">
+            <key>
+                <column name="officeAssetRequisitionId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Memo" />
+        </set>
+        <set name="requisitionresponseses" inverse="true">
+            <key>
+                <column name="officeAssetRequisitionId" unique="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Requisitionresponses" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,348 @@
+/*p, small { text-align: center; }*/
+
+div.footer { 
+    background: #3BB9FF; 
+    padding: 10px;
+    text-align: center;
+}
+
+
+div.centered 
+{
+    text-align: center;
+
+}
+div.centered table 
+{
+    margin: 0 auto; 
+    text-align: left;
+}
+
+table.datatable {
+    width: 100%;
+
+}
+
+table.datatable th {
+    background-color:#669ACC
+}
+
+/*table.datatable tr:hover{
+    background-color:#999
+}
+*/
+/*table.datatable tr:nth-child(odd) {
+    background-color:#999
+}
+
+table.datatable tr:nth-child(even) {
+    background-color:#999
+}*/
+
+table.datatable tr.even:hover {
+    background-color:#999
+}
+
+table.datatable tr.odd:hover {
+    background-color:#6495ED
+}
+
+
+#user-login-form {
+    width: 660px;
+    padding: 60px;
+
+}
+
+#user-login-form .panel-col-first {
+    float: left;
+    width: 300px;
+    border: 1px solid #669ACC;
+    background-color: #F2F2F2;
+    height: 220px;
+
+}
+
+
+#user-login-form .panel-col {
+    float: left;
+    width: 300px;
+    border: 1px solid #669ACC;
+    background-color: #69C;
+    height: 220px;
+
+}
+
+#user-login-form-dashboard {
+    width: 900px;
+    padding: 10px;
+
+}
+
+#user-login-form-dashboard .panel-col-first-dashboard {
+    float: left;
+    width: 300px;
+    border: 2px solid #669ACC;
+    background-color: #F2F2F2;
+    height: 80px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    margin-left:-50px;
+    margin-right: 5px;
+
+}
+
+#user-login-form-dashboard .panel-col-dashboard {
+    float: left;
+    width: 300px;
+    border: 2px solid #669ACC;
+    background-color: #F2F2F2;
+    height: 80px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+
+}
+
+#user-login-form-dashboard .panel-col-third-dashboard {
+    float: left;
+    width: 280px;
+    border: 2px solid #669ACC;
+    background-color: #F2F2F2;
+    height: 80px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 5px; 
+
+}
+
+#user-login-form-dashboard .panel-col-third-dashboard-logistics {
+    float: left;
+    width: 280px;
+    border: 2px solid #669ACC;
+    background-color: #F2F2F2;
+    height: 130px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 5px; 
+
+}
+
+#user-login-form-dashboard .panel-col-first-dashboard-daf {
+    float: left;
+    width: 300px;
+    border: 2px solid #669ACC;
+    background-color: #F2F2F2;
+    height: 80px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    margin-left:80px;
+    margin-right: 5px;
+
+}
+
+#user-login-form-dashboard .panel-col-first-dashboard-logistics {
+    float: left;
+    width: 300px;
+    border: 2px solid #669ACC;
+    background-color: #F2F2F2;
+    height: 130px;
+    margin-left: -50px;
+    margin-right: 5px;
+    padding-left: 10px;
+
+}
+
+#user-login-form-dashboard .panel-col-dashboard-logistics {
+    float: left;
+    width: 300px;
+    border: 2px solid #669ACC;
+    background-color: #F2F2F2;
+    height: 130px;
+    padding-left: 10px;
+
+}
+
+.notification-dashboard-panel-first{
+    display: inline-block;
+    min-width: 50px;
+    text-decoration: none;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 30px;
+
+    /*	background-color: red;*/
+}
+.notification-dashboard-panel-second{
+    display: inline-block;
+    min-width: 50px;
+    text-decoration: none;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    /*	background-color: red;*/
+}
+
+.notification-dashboard-active{
+    background-color: #F62217;
+}
+
+.notification-dashboard-innactive{
+    background-color: gray;
+}
+
+.forgot-password-button{
+
+    display: inline-block;
+    min-width: 100;
+    text-decoration: none;
+    color:white;
+    background-color: blue;
+}
+
+
+#user-login-form .panel-col-first .inside {
+    margin: 10px;
+}
+
+.form-errors{
+    /*    border-style: solid;
+        border-width: 1px;
+        border-color: red;*/
+    text-align: center;
+    color: red; 
+}
+.form-correct{
+    text-align: center;
+    color: #3BB9FF;
+}
+
+
+.form-required-error{
+    border-style: solid;
+    border-width: 1px;
+    border-color:red;
+    text-align: center;
+    background-color: #feebe5;
+    color: #aa1144;
+    display: block !important;
+}
+
+.form-informations{
+    border-style: solid;
+    border-width: 1px;
+    border-color:#3BB9FF;
+    text-align: center;
+    background-color: #52D017;
+    color: #feebe5;
+    display: block !important;
+}
+
+.form-alert{
+    border-style: solid;
+    border-width: 1px;
+    border-color:#3BB9FF;
+    text-align: center;
+    background-color:khaki;
+    color: #F62217;
+    text-decoration: blink;
+    display: block;
+}
+
+
+.form-required{
+    display: none;
+}
+
+.error-validator {
+    color: #ff0000;
+    font-style: italic;
+}
+
+.errorblock-validator {
+    color: #000;
+    background-color: #ffEEEE;
+    border: 3px solid #ff0000;
+    padding: 8px;
+    margin: 16px;
+}
+
+/*for only login form text input*/
+.login-input{
+
+    padding: 5px;    
+    border: 1px solid #DDDDDD;
+
+    Applying CSS3 gradient
+    background: -moz-linear-gradient(center top , #FFFFFF,  #EEEEEE 1px, #FFFFFF 20px);    
+    background: -webkit-gradient(linear, left top, left 20, from(#FFFFFF), color-stop(5%, #EEEEEE) to(#FFFFFF));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBFBFB', endColorstr='#FFFFFF');
+
+    Applying CSS 3radius    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+    Applying CSS3 box shadow
+    -moz-box-shadow: 0 0 2px #DDDDDD;
+    -webkit-box-shadow: 0 0 2px #DDDDDD;
+    box-shadow: 0 0 2px #DDDDDD;
+
+}
+.login-input:hover
+{
+    border:1px solid #cccccc;
+}
+.login-input:focus
+{
+    box-shadow:0 0 2px #FFFE00;
+}
+
+/*for all buttons*/
+input[type="submit"],input[type="button"]{
+
+    padding: 5px;    
+    border: 1px solid #DDDDDD;
+
+    Applying CSS3 gradient
+    background: -moz-linear-gradient(center top , #FFFFFF,  #EEEEEE 1px, #FFFFFF 20px);    
+    background: -webkit-gradient(linear, left top, left 20, from(#FFFFFF), color-stop(5%, #EEEEEE) to(#FFFFFF));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBFBFB', endColorstr='#FFFFFF');
+
+    Applying CSS 3radius    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+    Applying CSS3 box shadow
+    -moz-box-shadow: 0 0 5px #DDDDDD;
+    -webkit-box-shadow: 0 0 2px #DDDDDD;
+    box-shadow: 0 0 2px #DDDDDD;
+
+}
+input[type="submit"],input[type="button"]:hover
+{
+    border:3px solid #cccccc;
+}
+input[type="submit"],input[type="button"]:focus
+{
+    box-shadow:0 0 2px #FFFE00;
+}
+
+/*.padding{
+    padding: 10px 12px 20px 10px;
+    margin-bottom:0px;
+    border-style: solid;
+    border-width: 3px;
+}*/
+
+
+
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 14, 2013 4:28:16 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Privilege" table="privilege" catalog="omerspi">
+        <id name="privilege" type="string">
+            <column name="privilege" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="previlageDescription" type="string">
+            <column name="previlageDescription" length="255" not-null="true" />
+        </property>
+        <set name="roles" inverse="true" table="role_privilege">
+            <key>
+                <column name="privilege" length="45" not-null="true" />
+            </key>
+            <many-to-many entity-name="jim.omerspi.model.Role">
+                <column name="role" length="45" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

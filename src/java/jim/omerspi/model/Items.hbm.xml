@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2013 10:25:43 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Items" table="items" catalog="omerspi">
+        <id name="itemId" type="java.lang.Integer">
+            <column name="itemId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="categorytype" class="jim.omerspi.model.Categorytype" fetch="select">
+            <column name="categoryTypeId" not-null="true" />
+        </many-to-one>
+        <property name="itemName" type="string">
+            <column name="itemName" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="minimumQty" type="java.lang.Integer">
+            <column name="minimumQty" />
+        </property>
+        <property name="isAllowed" type="boolean">
+            <column name="isAllowed" not-null="true" />
+        </property>
+        <property name="totalQuantity" type="int">
+            <column name="totalQuantity" />
+        </property>
+        <set name="requestedItemses" inverse="true">
+            <key>
+                <column name="itemId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.RequestedItems" />
+        </set>
+        <set name="stationaryregistrations" inverse="true">
+            <key>
+                <column name="itemId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Stationaryregistration" />
+        </set>
+    </class>
+</hibernate-mapping>

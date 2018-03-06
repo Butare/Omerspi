@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2013 3:43:51 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Carrequisitionservice" table="carrequisitionservice" catalog="omerspi">
+        <id name="carServiceId" type="java.lang.Integer">
+            <column name="carServiceId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="vendor" class="jim.omerspi.model.Vendor" fetch="select">
+            <column name="vendorRegistrationId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="carregistration" class="jim.omerspi.model.Carregistration" fetch="select">
+            <column name="carRegistrationId" />
+        </many-to-one>
+        <many-to-one name="employee" class="jim.omerspi.model.Employee" fetch="select">
+            <column name="driverId" />
+        </many-to-one>
+        <many-to-one name="carrequisition" class="jim.omerspi.model.Carrequisition" fetch="select">
+            <column name="carRequisitionId" unique="true" />
+        </many-to-one>
+        <property name="numberPlate" type="string">
+            <column name="numberPlate" length="20" />
+        </property>
+        <property name="driverNames" type="string">
+            <column name="driverNames" length="60" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" />
+        </property>
+        <property name="exactTimeOfReturn" type="timestamp">
+            <column name="exactTimeOfReturn" length="19" />
+        </property>
+        <property name="servedOn" type="timestamp">
+            <column name="servedOn" length="19" />
+        </property>
+        <property name="serviceNumber" type="string">
+            <column name="serviceNumber"  length="50"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

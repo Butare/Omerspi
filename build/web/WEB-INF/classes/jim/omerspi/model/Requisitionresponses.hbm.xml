@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 2, 2013 11:37:24 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Requisitionresponses" table="requisitionresponses" catalog="omerspi">
+        <id name="requisitionResponseId" type="java.lang.Integer">
+            <column name="requisitionResponseId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employeeByHodEmployeeRegistrationId" class="jim.omerspi.model.Employee" fetch="select">
+            <column name="hodEmployeeRegistrationId" />
+        </many-to-one>
+        <many-to-one name="officeassetrequisition" class="jim.omerspi.model.Officeassetrequisition" fetch="select">
+            <column name="officeAssetRequisitionId" unique="true" />
+        </many-to-one>
+        <many-to-one name="employeeByDafEmployeeRegistrationId" class="jim.omerspi.model.Employee" fetch="select">
+            <column name="dafEmployeeRegistrationId" />
+        </many-to-one>
+        <many-to-one name="stationaryrequisition" class="jim.omerspi.model.Stationaryrequisition" fetch="select">
+            <column name="stationaryRequisitionId" unique="true" />
+        </many-to-one>
+        <many-to-one name="carrequisition" class="jim.omerspi.model.Carrequisition" fetch="select">
+            <column name="carRequisitionId" unique="true" />
+        </many-to-one>
+        <many-to-one name="employeeByLogisticEmployeeRegistrationId" class="jim.omerspi.model.Employee" fetch="select">
+            <column name="logisticEmployeeRegistrationId" />
+        </many-to-one>
+        <property name="hodResponse" type="string">
+            <column name="hodResponse" length="40" />
+        </property>
+        <property name="hodResponseDate" type="timestamp">
+            <column name="hodResponseDate" length="19" />
+        </property>
+        <property name="hodComment" type="string">
+            <column name="hodComment" />
+        </property>
+        <property name="dafResponse" type="string">
+            <column name="dafResponse" length="40" />
+        </property>
+        <property name="dafComment" type="string">
+            <column name="dafComment" />
+        </property>
+        <property name="dafResponseDate" type="timestamp">
+            <column name="dafResponseDate" length="19" />
+        </property>
+        <property name="logisticComment" type="string">
+            <column name="logisticComment" />
+        </property>
+    </class>
+</hibernate-mapping>

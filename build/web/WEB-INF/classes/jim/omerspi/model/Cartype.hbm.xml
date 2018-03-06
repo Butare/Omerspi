@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2013 3:43:51 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Cartype" table="cartype" catalog="omerspi">
+        <id name="carTypeId" type="java.lang.Integer">
+            <column name="carTypeId" />
+            <generator class="identity" />
+        </id>
+        <property name="typeName" type="string">
+            <column name="typeName" length="45" not-null="true" />
+        </property>
+        <property name="dailyCost" type="java.lang.Integer">
+            <column name="dailyCost" />
+        </property>
+        <property name="hourlyCost" type="java.lang.Integer">
+            <column name="hourlyCost" />
+        </property>
+        <set name="carrequisitions" inverse="true">
+            <key>
+                <column name="carTypeId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Carrequisition" />
+        </set>
+    </class>
+</hibernate-mapping>

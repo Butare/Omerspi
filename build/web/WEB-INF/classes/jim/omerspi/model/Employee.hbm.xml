@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 2, 2013 11:37:24 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Employee" table="employee" catalog="omerspi">
+        <id name="employeeRegistrationId" type="java.lang.Integer">
+            <column name="employeeRegistrationId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="department" class="jim.omerspi.model.Department" fetch="select">
+            <column name="departmentRegistrationId" />
+        </many-to-one>
+        <property name="employeeCode" type="string">
+            <column name="employeeCode" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="firstName" length="40" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="lastName" length="40" not-null="true" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" length="20" not-null="true" />
+        </property>
+        <property name="jobPosition" type="string">
+            <column name="jobPosition" length="40" not-null="true" />
+        </property>
+        <property name="nationalId" type="string">
+            <column name="nationalId" length="32" not-null="true" unique="true" />
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone" length="40" unique="true" />
+        </property>
+        <property name="identificationWord" type="string">
+            <column name="identificationWord" length="60" not-null="true" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="20" />
+        </property>
+        <property name="firstDate" type="timestamp">
+            <column name="firstDate" length="19" />
+        </property>
+        <property name="changePositionDate" type="timestamp">
+            <column name="changePositionDate" length="19" />
+        </property>
+        <property name="innactiveDate" type="timestamp">
+            <column name="innactiveDate" length="19" />
+        </property>
+        <property name="driver" type="java.lang.Boolean">
+            <column name="driver" />
+        </property>
+        <property name="licenceNumber" type="string">
+            <column name="licenceNumber" length="30" />
+        </property>
+        <property name="workEmail" type="string">
+            <column name="workEmail" length="100" />
+        </property>
+        <set name="users" inverse="true">
+            <key>
+                <column name="employeeRegistrationId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.User" />
+        </set>
+        <set name="carrequisitionservices" inverse="true">
+            <key>
+                <column name="driverId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Carrequisitionservice" />
+        </set>
+        <set name="officeassetrequisitions" inverse="true">
+            <key>
+                <column name="requesterId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Officeassetrequisition" />
+        </set>
+        <set name="requisitionresponsesesForHodEmployeeRegistrationId" inverse="true">
+            <key>
+                <column name="hodEmployeeRegistrationId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Requisitionresponses" />
+        </set>
+        <set name="stationaryregistrations" inverse="true">
+            <key>
+                <column name="recordedBy" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Stationaryregistration" />
+        </set>
+        <set name="stationaryrequisitions" inverse="true">
+            <key>
+                <column name="requesterId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Stationaryrequisition" />
+        </set>
+        <set name="users_1" inverse="true">
+            <key>
+                <column name="employeeRegistrationId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.User" />
+        </set>
+        <set name="carrequisitionservices_1" inverse="true">
+            <key>
+                <column name="driverId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Carrequisitionservice" />
+        </set>
+        <set name="officeassetrequisitions_1" inverse="true">
+            <key>
+                <column name="requesterId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Officeassetrequisition" />
+        </set>
+        <set name="carrequisitions" inverse="true">
+            <key>
+                <column name="requesterId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Carrequisition" />
+        </set>
+        <set name="requisitionresponsesesForLogisticEmployeeRegistrationId" inverse="true">
+            <key>
+                <column name="logisticEmployeeRegistrationId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Requisitionresponses" />
+        </set>
+        <set name="carrequisitions_1" inverse="true">
+            <key>
+                <column name="requesterId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Carrequisition" />
+        </set>
+        <set name="stationaryrequisitions_1" inverse="true">
+            <key>
+                <column name="requesterId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Stationaryrequisition" />
+        </set>
+        <set name="requisitionresponsesesForDafEmployeeRegistrationId" inverse="true">
+            <key>
+                <column name="dafEmployeeRegistrationId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Requisitionresponses" />
+        </set>
+    </class>
+</hibernate-mapping>

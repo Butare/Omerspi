@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="omerspi"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="requested_items"/>
+  <table-filter match-name="stationaryrequisition"/>
+  <table-filter match-name="officeassetrequisition"/>
+  <table-filter match-name="user_role"/>
+  <table-filter match-name="carrequisition"/>
+  <table-filter match-name="items"/>
+  <table-filter match-name="carrequisitionservice"/>
+  <table-filter match-name="privilege"/>
+  <table-filter match-name="stationaryregistration"/>
+  <table-filter match-name="role_privilege"/>
+  <table-filter match-name="requisitionresponses"/>
+  <table-filter match-name="role"/>
+  <table-filter match-name="category"/>
+  <table-filter match-name="department"/>
+  <table-filter match-name="itenerary"/>
+  <table-filter match-name="categorytype"/>
+  <table-filter match-name="memo"/>
+  <table-filter match-name="carregistration"/>
+  <table-filter match-name="employee"/>
+  <table-filter match-name="vendor"/>
+  <table-filter match-name="cartype"/>
+  <table-filter match-name="itenerary_carrequisition"/>
+  <table-filter match-name="officeassetrequisitionservice"/>
+</hibernate-reverse-engineering>

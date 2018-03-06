@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 2, 2013 11:37:24 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Memo" table="memo" catalog="omerspi">
+        <id name="memoId" type="java.lang.Integer">
+            <column name="memoId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="officeassetrequisition" class="jim.omerspi.model.Officeassetrequisition" fetch="select">
+            <column name="officeAssetRequisitionId" />
+        </many-to-one>
+        <many-to-one name="carrequisition" class="jim.omerspi.model.Carrequisition" fetch="select">
+            <column name="carRequisitionId" />
+        </many-to-one>
+        <property name="sendTo" type="string">
+            <column name="sendTo" length="30" />
+        </property>
+        <property name="cc" type="string">
+            <column name="cc" />
+        </property>
+        <property name="dueDate" type="timestamp">
+            <column name="dueDate" length="19" />
+        </property>
+        <property name="subject" type="string">
+            <column name="subject" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 14, 2013 4:28:16 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Department" table="department" catalog="omerspi">
+        <id name="departmentRegistrationId" type="java.lang.Integer">
+            <column name="departmentRegistrationId" />
+            <generator class="identity" />
+        </id>
+        <property name="departmentCode" type="string">
+            <column name="departmentCode" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="departmentName" type="string">
+            <column name="departmentName" length="40" not-null="true" unique="true" />
+        </property>
+        <property name="functionalLocation" type="string">
+            <column name="functionalLocation" length="40" not-null="true" />
+        </property>
+
+        <set name="employees" inverse="true">
+            <key>
+                <column name="departmentRegistrationId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Employee" />
+        </set>
+      
+        <set name="employees_1" inverse="true">
+            <key>
+                <column name="departmentRegistrationId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>

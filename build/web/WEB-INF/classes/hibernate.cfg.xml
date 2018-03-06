@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/omerspi</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">rwandajimes</property>
+    <mapping resource="jim/ABC/Notfounditemrequisition.hbm.xml"/>
+    <mapping resource="jim/ABC/Department.hbm.xml"/>
+    <mapping resource="jim/ABC/Stationaryrequisition.hbm.xml"/>
+    <mapping resource="jim/ABC/Stationaryregistrations.hbm.xml"/>
+    <mapping resource="jim/ABC/User.hbm.xml"/>
+    <mapping resource="jim/ABC/Officeassetregistration.hbm.xml"/>
+    <mapping resource="jim/ABC/Category.hbm.xml"/>
+    <mapping resource="jim/ABC/Requisitionresponses.hbm.xml"/>
+    <mapping resource="jim/ABC/Privilege.hbm.xml"/>
+    <mapping resource="jim/ABC/Carrequisitionservice.hbm.xml"/>
+    <mapping resource="jim/ABC/Item.hbm.xml"/>
+    <mapping resource="jim/ABC/Itenerary.hbm.xml"/>
+    <mapping resource="jim/ABC/RequestedItem.hbm.xml"/>
+    <mapping resource="jim/ABC/Memo.hbm.xml"/>
+    <mapping resource="jim/ABC/Categorytype.hbm.xml"/>
+    <mapping resource="jim/ABC/Carrequisition.hbm.xml"/>
+    <mapping resource="jim/ABC/Employee.hbm.xml"/>
+    <mapping resource="jim/ABC/Cartype.hbm.xml"/>
+    <mapping resource="jim/ABC/Carregistration.hbm.xml"/>
+    <mapping resource="jim/ABC/Role.hbm.xml"/>
+    <mapping resource="jim/ABC/Vendor.hbm.xml"/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping resource="jim/ABC/RequestedItems.hbm.xml"/>
+    <mapping resource="jim/ABC/Stationaryregistration.hbm.xml"/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping resource="jim/ABC/Items.hbm.xml"/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping resource="jim/ABC/Officeassetrequisition.hbm.xml"/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping resource="jim/ABC/Officeassetrequisitionservice.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

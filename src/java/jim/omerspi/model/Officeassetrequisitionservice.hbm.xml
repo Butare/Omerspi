@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2013 1:38:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Officeassetrequisitionservice" table="officeassetrequisitionservice" catalog="omerspi">
+        <id name="serviceId" type="java.lang.Integer">
+            <column name="serviceId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="requestedItems" class="jim.omerspi.model.RequestedItems" fetch="select">
+            <column name="requestedId" not-null="true" />
+        </many-to-one>
+        <property name="serialNumber" type="string">
+            <column name="serialNumber" length="30" />
+        </property>
+        <property name="officeAssetCode" type="string">
+            <column name="officeAssetCode" length="50" />
+        </property>
+        <property name="observation" type="string">
+            <column name="observation" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

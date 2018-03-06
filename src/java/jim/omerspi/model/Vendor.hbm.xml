@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2013 10:25:43 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Vendor" table="vendor" catalog="omerspi">
+        <id name="vendorRegistrationId" type="java.lang.Integer">
+            <column name="vendorRegistrationId" />
+            <generator class="identity" />
+        </id>
+        <property name="vendorName" type="string">
+            <column name="vendorName" length="80" not-null="true" unique="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="40" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="60" unique="true" />
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone" length="40" unique="true" />
+        </property>
+        <property name="tenderNumber" type="string">
+            <column name="tenderNumber" length="40" not-null="true" unique="true" />
+        </property>
+        <property name="tenderPurpose" type="string">
+            <column name="tenderPurpose" length="45" />
+        </property>
+        <property name="startingPeriod" type="date">
+            <column name="startingPeriod" length="10" />
+        </property>
+        <property name="endingPeriod" type="date">
+            <column name="endingPeriod" length="10" />
+        </property>
+        <set name="carrequisitionservices" inverse="true">
+            <key>
+                <column name="vendorRegistrationId" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Carrequisitionservice" />
+        </set>
+        <set name="stationaryregistrations" inverse="true">
+            <key>
+                <column name="vendorRegistrationId" not-null="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Stationaryregistration" />
+        </set>
+    </class>
+</hibernate-mapping>

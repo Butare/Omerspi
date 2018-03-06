@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2013 10:25:43 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="jim.omerspi.model.Stationaryrequisition" table="stationaryrequisition" catalog="omerspi">
+        <id name="stationaryRequisitionId" type="java.lang.Integer">
+            <column name="stationaryRequisitionId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employee" class="jim.omerspi.model.Employee" fetch="select">
+            <column name="requesterId" not-null="true" />
+        </many-to-one>
+        <property name="requisitionDate" type="timestamp">
+            <column name="requisitionDate" length="19" not-null="true" />
+        </property>
+        <property name="serviceDate" type="timestamp">
+            <column name="serviceDate" length="19" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="40" />
+        </property>
+        <property name="serviceNumber" type="string">
+            <column name="serviceNumber" length="50" />
+        </property>
+        <property name="stationarySeen" type="java.lang.Boolean">
+            <column name="stationarySeen" />
+        </property>
+        <set name="requisitionresponseses" inverse="true">
+            <key>
+                <column name="stationaryRequisitionId" unique="true" />
+            </key>
+            <one-to-many class="jim.omerspi.model.Requisitionresponses" />
+        </set>
+        <set name="requestedItemses" inverse="true">
+            <key>
+                <column name="stationaryRequisitionId"/>
+            </key>
+            <one-to-many class="jim.omerspi.model.RequestedItems" />
+        </set>
+    </class>
+</hibernate-mapping>

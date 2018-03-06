@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd" >
+
+ 
+    <context:annotation-config  />
+    <context:component-scan base-package="jim.omerspi"/>
+    
+    
+    <import resource="jasper-views.xml" />
+    
+
+
+    <mvc:interceptors>
+        <bean class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">
+            <property name="sessionFactory">
+                <ref local="sessionFactory" />
+            </property>
+        </bean>
+    </mvc:interceptors>
+    
+    
+    <mvc:annotation-driven conversion-service="conversionService" />
+   
+<!--    <bean id="propertyConfigurer"
+           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+           p:location="/WEB-INF/jdbc.properties"/>
+      
+   
+           
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+           destroy-method="close" 
+           p:driverClassName="${jdbc.driverClassName}"
+           p:url="${jdbc.databaseurl}"
+           p:username="${jdbc.username}"
+           p:password="${jdbc.password}" />-->
+         
+    <bean id="sessionFactory" 
+       class="jim.omerspi.HibernateSessionFactoryBean">
+<!--            class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">-->
+               
+           
+<!--        <property name="dataSource" ref="dataSource"/> -->
+             
+        <property name="mappingResources">
+            <list>
+                <value>jim/omerspi/model/Employee.hbm.xml</value>  
+                <value>jim/omerspi/model/User.hbm.xml</value> 
+                <value>jim/omerspi/model/Carrequisitionservice.hbm.xml</value>
+                <value>jim/omerspi/model/Officeassetrequisition.hbm.xml</value> 
+                <value>jim/omerspi/model/Officeassetrequisitionservice.hbm.xml</value> 
+                <value>jim/omerspi/model/Carrequisition.hbm.xml</value>
+                <value>jim/omerspi/model/Carregistration.hbm.xml</value>
+                <value>jim/omerspi/model/Requisitionresponses.hbm.xml</value>
+                <value>jim/omerspi/model/Department.hbm.xml</value>
+                <value>jim/omerspi/model/Memo.hbm.xml</value>
+                <value>jim/omerspi/model/Vendor.hbm.xml</value> 
+                <value>jim/omerspi/model/Stationaryregistration.hbm.xml</value>
+                <value>jim/omerspi/model/Stationaryrequisition.hbm.xml</value>
+                <value>jim/omerspi/model/RequestedItems.hbm.xml</value>
+                <value>jim/omerspi/model/Items.hbm.xml</value>
+                <value>jim/omerspi/model/Category.hbm.xml</value>
+                <value>jim/omerspi/model/Role.hbm.xml</value>
+                <value>jim/omerspi/model/Privilege.hbm.xml</value>
+                <value>jim/omerspi/model/Itenerary.hbm.xml</value>
+                <value>jim/omerspi/model/Cartype.hbm.xml</value>
+                <value>jim/omerspi/model/Categorytype.hbm.xml</value>
+<!--                <value>jim/omerspi/model/Itemtransaction.hbm.xml</value>-->
+                                
+            </list>
+        </property>
+            
+<!--        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.jdbc.use_get_generated_keys">true</prop>
+                <prop key="hibernate.connection.release_mode">auto</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>-->
+             
+    </bean>
+    
+
+<!--  Mail sendig  -->
+
+<!--    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="protocol" value="smtp" />
+        <property name="username" value="omerspirequisition@gmail.com" />
+        <property name="password" value="omerspi123" />
+       
+ 
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.quitwait">false</prop>
+                <prop key="mail.smtps.debug">true</prop>
+                
+            </props>
+        </property>
+    </bean>
+ 
+    <bean id="mailMail" class="jim.omerspi.mail.MailMail">
+        <property name="mailSender" ref="mailSender" />
+    </bean>
+    -->
+<!--    -->
+
+            
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="jim.omerspi.converter.StringToCategoryConverter"/>
+                <bean class="jim.omerspi.converter.StringToDepartmentConverter" />
+                <bean class="jim.omerspi.converter.StringToItemConverter"/>
+                <bean class="jim.omerspi.converter.StringToVendorConverter"/>
+                <bean class="jim.omerspi.converter.StringToEmployeeConverter"/>
+                <bean class="jim.omerspi.converter.StringToOfficeAssetRequisitionConverter"/>
+                <bean class="jim.omerspi.converter.StringToStationaryRegistrationsConverter"/>
+               
+                <bean class="jim.omerspi.converter.OfficeAssetRequisitionToStringConverter"/>
+                <bean class="jim.omerspi.converter.StringToCarRegistrationConverter"/>
+                <bean class="jim.omerspi.converter.StringToCarRequisitionConverter"/>
+                <bean class="jim.omerspi.converter.StringToStationaryRequisitionConverter"/>
+                <bean class="jim.omerspi.converter.StringToRequisitionResponseConverter"/>
+                <bean class="jim.omerspi.converter.StringToUserConverter"/>
+                <bean class="jim.omerspi.converter.StringToMemoConverter"/>
+                <bean class="jim.omerspi.converter.StringToIteneraryConverter"/>
+                <bean class="jim.omerspi.converter.StringToCarTypeConverter"/>
+                <bean class="jim.omerspi.converter.StringToPrivilegeConverter"/>
+                <bean class="jim.omerspi.converter.StringToCarRequisitionServiceConverter"/>
+                <bean class="jim.omerspi.converter.CarRegistrationToStringConverter"/>
+                
+                <bean class="jim.omerspi.converter.CarRequisitionToStringConverter"/>
+                <bean class="jim.omerspi.converter.RequisitionResponseToStringConverter"/>
+                <bean class="jim.omerspi.converter.EmployeeToStringConverter"/>
+                <bean class="jim.omerspi.converter.StationaryRequisitionToStringConverter"/>
+                <bean class="jim.omerspi.converter.VendorToStringConverter"/>
+                <bean class="jim.omerspi.converter.StringToBooleanConverter"/>
+                <bean class="jim.omerspi.converter.StringToDateConverter"/>
+                <bean class="jim.omerspi.converter.StringToCategoryTypeConverter"/>
+                <bean class="jim.omerspi.converter.StringToRequestedItemsConverter"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+    
+    <!--<bean id="conversion-service" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />-->
+   
+    <bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="useCodeAsDefaultMessage">
+            <value>true</value>
+        </property>
+        <property name="cacheSeconds" value="3000" />
+        <property name="basename" value="/WEB-INF/message"/>
+    </bean>
+   
+    <tx:annotation-driven />
+    
+    <bean id="transactionManager" 
+      class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+    <bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+        <property name="transactionInterceptor" ref="transactionInterceptor"/>
+    </bean>
+
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" /> 
+        </property>
+    </bean>
+
+    <bean id="transactionAttributeSource" class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+
+    <!-- DAOs -->
+
+    <bean id="departmentDAO" class="jim.omerspi.dao.impl.DepartmentDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>	
+    </bean>
+    
+    <bean id="employeeDAO" class="jim.omerspi.dao.impl.EmployeeDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/> 
+        </property>
+    </bean>
+    
+    <bean id="categoryDAO" class="jim.omerspi.dao.impl.CategoryDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="itemDAO" class="jim.omerspi.dao.impl.ItemDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="vendorDAO" class="jim.omerspi.dao.impl.VendorDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="carRegistrationDAO" class="jim.omerspi.dao.impl.CarRegistrationDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+
+    
+    <bean id="stationaryRegistrationsDAO" class="jim.omerspi.dao.impl.StationaryRegistrationsDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    
+    <bean id="memoDAO" class="jim.omerspi.dao.impl.MemoDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="userDAO" class="jim.omerspi.dao.impl.UserDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="carRequisitionDAO" class="jim.omerspi.dao.impl.CarRequisitionDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="carRequisitionServiceDAO" class="jim.omerspi.dao.impl.CarRequisitionServiceDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="stationaryRequisitionDAO" class="jim.omerspi.dao.impl.StationaryRequisitionDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="requisitionResponseDAO" class="jim.omerspi.dao.impl.RequisitionResponseDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="requestedItemDAO" class="jim.omerspi.dao.impl.RequestedItemDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="iteneraryDAO" class="jim.omerspi.dao.impl.IteneraryDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="carTypeDAO" class="jim.omerspi.dao.impl.CartypeDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="privilegeDAO" class="jim.omerspi.dao.impl.PrivilegeDaoImpl"> 
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="categoryTypeDAO" class="jim.omerspi.dao.impl.CategoryTypeDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>    
+        </property>    
+    </bean>
+    
+    <bean id="officeAssetRequisitionDAO" class="jim.omerspi.dao.impl.OfficeAssetRequisitionDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>    
+        </property>    
+    </bean>
+    
+    <bean id="officeAssetRequisitionServiceDAO" class="jim.omerspi.dao.impl.OfficeAssetRequisitionServiceDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>    
+        </property>    
+    </bean>
+    
+    <!-- Services -->
+
+    <bean id="departmentServiceTarget" class="jim.omerspi.service.impl.DepartmentServiceImpl">
+        <property name="departmentDao">
+            <ref bean="departmentDAO"/>
+        </property>	
+    </bean>
+ 
+    <bean id="employeeServiceTarget" class="jim.omerspi.service.impl.EmployeeServiceImpl">       
+        <property name="employeeDao">
+            <ref bean="employeeDAO"/>    
+        </property>
+    </bean>
+
+    <bean id="categoryServiceTarget" class="jim.omerspi.service.impl.CategoryServiceImpl">
+        <property name="categoryDao">
+            <ref bean="categoryDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="itemServiceTarget" class="jim.omerspi.service.impl.ItemServiceImpl">
+        <property name="itemDao">
+            <ref bean="itemDAO"/>
+        </property>        
+    </bean>
+    
+    
+    
+    <bean id="vendorServiceTarget" class="jim.omerspi.service.impl.VendorServiceImpl">
+        <property name="vendorDao">
+            <ref bean="vendorDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="carRegistrationServiceTarget" class="jim.omerspi.service.impl.CarRegistrationServiceImpl">
+        <property name="carRegistrationDao">
+            <ref bean="carRegistrationDAO"/>
+        </property>        
+    </bean>
+
+    
+    <bean id="stationaryRegistrationsServiceTarget" class="jim.omerspi.service.impl.StationaryRegistrationsServiceImpl">
+        <property name="stationaryRegistrationsDao">
+            <ref bean="stationaryRegistrationsDAO"/>
+        </property>        
+    </bean>
+
+ 
+    
+    <bean id="memoServiceTarget" class="jim.omerspi.service.impl.MemoServiceImpl">
+        <property name="memoDao">
+            <ref bean="memoDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="userServiceTarget" class="jim.omerspi.service.impl.UserServiceImpl">
+        <property name="userDao">
+            <ref bean="userDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="carRequisitionServiceTarget" class="jim.omerspi.service.impl.CarRequisitionServiceImpl">
+        <property name="carRequisitionDao">
+            <ref bean="carRequisitionDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="carRequisitionServiceServiceTarget" class="jim.omerspi.service.impl.CarRequisitionServiceServiceImpl">
+        <property name="carRequisitionServiceDao">
+            <ref bean="carRequisitionServiceDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="stationaryRequisitionServiceTarget" class="jim.omerspi.service.impl.StationaryRequisitionServiceImpl">
+        <property name="stationaryRequisitionDao">
+            <ref bean="stationaryRequisitionDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="requisitionResponseServiceTarget" class="jim.omerspi.service.impl.RequisitionResponseServiceImpl">
+        <property name="requisitionResponseDao">
+            <ref bean="requisitionResponseDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="requestedItemServiceTarget" class="jim.omerspi.service.impl.RequestedItemServiceImpl">
+        <property name="requestedItemDao">
+            <ref bean="requestedItemDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="iteneraryServiceTarget" class="jim.omerspi.service.impl.IteneraryServiceImpl">
+        <property name="iteneraryDao">
+            <ref bean="iteneraryDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="carTypeServiceTarget" class="jim.omerspi.service.impl.CartypeServiceImpl">
+        <property name="cartypeDao">
+            <ref bean="carTypeDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="privilegeServiceTarget" class="jim.omerspi.service.impl.PrivilegeServiceImpl">
+        <property name="privilegeDao">
+            <ref bean="privilegeDAO"/>
+        </property>        
+    </bean>
+    
+    <bean id="categoryTypeServiceTarget" class="jim.omerspi.service.impl.CategoryTypeServiceImpl">
+        <property name="categoryTypeDao">
+            <ref bean="categoryTypeDAO"/>    
+        </property>    
+    </bean>
+    
+    <bean id="officeAssetRequisitionServiceTarget" class="jim.omerspi.service.impl.OfficeAssetRequisitionServiceImpl">
+        <property name="officeAssetRequisitionDao">
+            <ref bean="officeAssetRequisitionDAO"/>    
+        </property>    
+    </bean>
+    
+    <bean id="officeAssetRequisitionServiceServiceTarget" class="jim.omerspi.service.impl.OfficeAssetRequisitionServiceServiceImpl">
+        <property name="officeAssetRequisitionServiceDao">
+            <ref bean="officeAssetRequisitionServiceDAO"/>    
+        </property>    
+    </bean>
+    
+   <!-- Transaction Proxies -->
+
+    <bean id="departmentService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="departmentServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="employeeService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="employeeServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+        
+    <bean id="categoryService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="categoryServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="itemService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="itemServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    
+    
+    <bean id="vendorService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="vendorServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+
+    <bean id="carRegistrationService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="carRegistrationServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    
+    <bean id="stationaryRegistrationsService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="stationaryRegistrationsServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+
+
+    
+    <bean id="memoService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="memoServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="userService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="userServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="carRequisitionService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="carRequisitionServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="carRequisitionServiceService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="carRequisitionServiceServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="stationaryRequisitionService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="stationaryRequisitionServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="requisitionResponseService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="requisitionResponseServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="requestedItemService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="requestedItemServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="iteneraryService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="iteneraryServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="carTypeService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="carTypeServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="privilegeService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="privilegeServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="categoryTypeService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="categoryTypeServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+
+    <bean id="officeAssetRequisitionService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="officeAssetRequisitionServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    <bean id="officeAssetRequisitionServiceService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>        
+        <property name="target">
+            <ref local="officeAssetRequisitionServiceServiceTarget"/>
+        </property>       
+        <property name="transactionAttributeSource">
+            <ref local="transactionAttributeSource" />
+        </property>       
+    </bean>
+    
+    
+        <!--  ServiceContext Class Properties-->
+
+    <bean id="serviceContext" class="jim.omerspi.ServiceContext">
+        <property name="departmentService">
+            <ref bean="departmentService" />
+        </property> 
+        <property name="employeeService">
+            <ref bean="employeeService"/>    
+        </property> 
+        <property name="categoryService">
+            <ref bean ="categoryService" /> 
+        </property>
+        <property name="itemService">
+            <ref bean="itemService"/>
+        </property>
+        
+        <property name="vendorService">
+            <ref bean="vendorService"/>
+        </property>
+        
+        <property name="carRegistrationService">
+            <ref bean="carRegistrationService"/>
+        </property>
+   
+        
+        <property name="stationaryRegistrationsService">
+            <ref bean="stationaryRegistrationsService"/>
+        </property>
+        
+        
+        <property name="memoService">
+            <ref bean="memoService"/>
+        </property>
+        
+        <property name="userService">
+            <ref bean="userService"/>
+        </property>
+        
+        <property name="carRequisitionService">
+            <ref bean="carRequisitionService"/>
+        </property>
+        
+        <property name="carRequisitionServiceService">
+            <ref bean="carRequisitionServiceService"/>
+        </property>
+        
+        <property name="stationaryRequisitionService">
+            <ref bean="stationaryRequisitionService"/>
+        </property>
+        
+        <property name="requisitionResponseService">
+            <ref bean="requisitionResponseService"/>
+        </property>
+        
+        <property name="requestedItemService">
+            <ref bean="requestedItemService"/>
+        </property>
+        
+        <property name="iteneraryService">
+            <ref bean="iteneraryService"/>
+        </property>
+        
+        <property name="cartypeService">
+            <ref bean="carTypeService"/>
+        </property>
+        
+        <property name="privilegeService">
+            <ref bean="privilegeService"/>
+        </property>
+        
+        <property name="categoryTypeService">
+            <ref bean="categoryTypeService"/>
+        </property>
+        
+        <property name="officeAssetRequisitionService">
+            <ref bean="officeAssetRequisitionService"/>
+        </property>
+        
+        <property name="officeAssetRequisitionServiceService">
+            <ref bean="officeAssetRequisitionServiceService"/>
+        </property>
+        
+    </bean>
+    
+    <bean class="jim.omerspi.Context" />
+
+</beans>
+
